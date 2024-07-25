@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Validator</title>
+</head>
+<body>
+    <input type="text" id="urlInput" placeholder="Enter URL here">
+    <button onclick="validateURL()">Check URL</button>
+    <p id="result"></p>
+
+    <script>
+        function validateURL() {
+            // Get the input value
+            const urlInput = document.getElementById('urlInput').value;
+
+            // Regular expression for validating URLs
+            const urlPattern = /^(https?:\/\/)[\w\-\.]+(\.[a-zA-Z]{2,})+$/;
+
+            // Check if the input matches the URL pattern
+            const isValid = urlPattern.test(urlInput);
+
+            // Display the result
+            const result = document.getElementById('result');
+            if (isValid) {
+                result.textContent = 'Valid URL';
+                result.style.color = 'green';
+            } else {
+                result.textContent = 'Invalid URL';
+                result.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
