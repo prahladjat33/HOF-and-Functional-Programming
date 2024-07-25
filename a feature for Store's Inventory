@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Conversion</title>
+</head>
+<body>
+    <script>
+        // Store items and their prices in USD
+        const itemsInUSD = {
+            'Laptop': 1200,
+            'Smartphone': 800,
+            'Headphones': 150,
+            'Keyboard': 50,
+            'Mouse': 30
+        };
+
+        // Exchange rate from USD to INR
+        const exchangeRate = 80;
+
+        // Convert USD prices to INR
+        function convertPricesToINR(prices, rate) {
+            return Object.fromEntries(
+                Object.entries(prices).map(([item, price]) => [item, price * rate])
+            );
+        }
+
+        // Perform conversion
+        const itemsInINR = convertPricesToINR(itemsInUSD, exchangeRate);
+
+        // Display the result
+        console.log('Items with prices in INR:', itemsInINR);
+    </script>
+</body>
+</html>
