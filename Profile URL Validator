@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn URL Validator</title>
+    <style>
+        #result {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="linkedinInput" placeholder="Enter LinkedIn profile URL">
+    <button onclick="validateLinkedInURL()">Check URL</button>
+    <p id="result"></p>
+
+    <script>
+        function validateLinkedInURL() {
+            // Get the input value
+            const urlInput = document.getElementById('linkedinInput').value;
+
+            // Regular expression for validating LinkedIn profile URLs
+            const linkedinPattern = /^https:\/\/www\.linkedin\.com\/in\/[a-zA-Z0-9_-]{5,30}[a-zA-Z0-9]$/;
+
+            // Check if the input matches the LinkedIn URL pattern
+            const isValid = linkedinPattern.test(urlInput);
+
+            // Display the result
+            const result = document.getElementById('result');
+            if (isValid) {
+                result.textContent = 'Valid LinkedIn profile URL';
+                result.style.color = 'green';
+            } else {
+                result.textContent = 'Invalid LinkedIn profile URL';
+                result.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
