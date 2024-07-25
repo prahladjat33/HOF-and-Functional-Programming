@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Generator with Countdown</title>
+</head>
+<body>
+    <div id="countdown"></div>
+    <div id="result"></div>
+
+    <script>
+        // Variable to store the delay time in milliseconds
+        const delay = 3000; // 3 seconds
+        const countdownDisplay = document.getElementById('countdown');
+        const resultDisplay = document.getElementById('result');
+
+        // Function to generate a random number
+        function generateRandomNumber() {
+            return Math.floor(Math.random() * 100) + 1; // Random number between 1 and 100
+        }
+
+        // Countdown function
+        function startCountdown(duration) {
+            let timeRemaining = duration / 1000; // Convert milliseconds to seconds
+
+            // Display the countdown every second
+            const intervalId = setInterval(() => {
+                if (timeRemaining <= 0) {
+                    clearInterval(intervalId); // Stop the countdown
+                    resultDisplay.textContent = `Generated Number: ${generateRandomNumber()}`;
+                } else {
+                    countdownDisplay.textContent = `Time remaining: ${timeRemaining} seconds`;
+                    timeRemaining -= 1; // Decrease time remaining by 1 second
+                }
+            }, 1000); // 1 second interval
+        }
+
+        // Start countdown
+        startCountdown(delay);
+    </script>
+</body>
+</html>
